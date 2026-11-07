@@ -7,6 +7,7 @@ The `examples` folder contains the following examples:
     - Note: does not work with regular DS devices currently
 - usb-speaker - Makes the DS/DSi/3DS work as a USB speaker for your PC
 - usb-video - Allows to use the camera of your DSi or 3DS on your PC via USB
+- usb-gamepad - Makes the DS/DSi/3DS work as a USB game pad for your PC
 
 The `platform` folder contains the tiny usb platform code for the DSpico.
 
