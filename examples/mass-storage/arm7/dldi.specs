@@ -1,0 +1,4 @@
+%rename link old_link
+
+*link:
+-T arm7/dldi.ld %(old_link)

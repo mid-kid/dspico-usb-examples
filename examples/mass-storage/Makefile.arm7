@@ -96,7 +96,7 @@ DEFINES		+= -D__NDS__ -D__BLOCKSDS__ -DARM7 -DLIBTWL_ARM7
 
 ARCH		:= -mthumb -mcpu=arm7tdmi
 
-SPECS		?= arm7/dldi_ds_arm7.specs
+SPECS		?= $(BLOCKSDS)/sys/crts/ds_arm7.specs
 
 WARNFLAGS	:= -Wall
 
@@ -126,7 +126,7 @@ CXXFLAGS	:= $(WARNFLAGS) $(INCLUDEFLAGS) $(DEFINES) \
 
 LDFLAGS		:= $(ARCH) $(LIBDIRSFLAGS) -Wl,-Map,$(MAP) $(DEFINES) \
 		   -Wl,--start-group $(LIBS) -Wl,--end-group -specs=$(SPECS) \
-		   $(LDFLAGS)
+		   -specs=arm7/dldi.specs $(LDFLAGS)
 
 # Intermediate build files
 # ------------------------
@@ -150,7 +150,7 @@ DEPS		:= $(OBJS:.o=.d)
 
 all: $(ELF)
 
-$(ELF): $(OBJS)
+$(ELF): $(OBJS) arm7/dldi.specs arm7/dldi.ld
 	@echo "  LD.7    $@"
 	$(V)$(LD) -o $@ $(OBJS) $(LDFLAGS)
 
